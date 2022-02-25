@@ -1,4 +1,5 @@
 import 'package:astrotak_demo/views/screens/ask_a_question_screen.dart';
+import 'package:astrotak_demo/views/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -12,9 +13,15 @@ class AppRouter {
           settings: settings,
           fullscreenDialog: true,
         );
+      case AppRoutes.profileSection:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => const ProfileSectionScreen(),
+          settings: settings,
+          fullscreenDialog: true,
+        );
       default:
         return MaterialPageRoute<dynamic>(
-          builder: (_) => const  AskAQuestionScreen(),
+          builder: (_) => const AskAQuestionScreen(),
           settings: settings,
           fullscreenDialog: true,
         );
@@ -24,6 +31,7 @@ class AppRouter {
 
 class AppRoutes {
   static const landingPage = '/';
+  static const profileSection = '/ProfileSection';
 }
 
 

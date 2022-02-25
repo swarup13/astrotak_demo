@@ -1,8 +1,8 @@
 import 'package:astrotak_demo/constants.dart';
+import 'package:astrotak_demo/controllers/routes.dart';
 import 'package:astrotak_demo/views/widgets/ask_idea_tile_widget.dart';
 import 'package:astrotak_demo/views/widgets/bullet_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class AskAQuestionScreen extends StatelessWidget {
   const AskAQuestionScreen({Key? key}) : super(key: key);
@@ -11,7 +11,6 @@ class AskAQuestionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String _selectedCategory = 'Love';
     return Scaffold(
-      // key: scaffoldKey,
       appBar: AppBar(
         leading: IconButton(
             icon: Image.asset(
@@ -23,7 +22,7 @@ class AskAQuestionScreen extends StatelessWidget {
             }),
         title: Image.asset(
           'assets/icons/icon.png',
-          height: 70,
+          height: 60,
         ),
         actions: [
           IconButton(
@@ -31,18 +30,12 @@ class AskAQuestionScreen extends StatelessWidget {
                 'assets/icons/profile.png',
                 fit: BoxFit.cover,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.profileSection);
+              }),
         ],
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
-          statusBarIconBrightness: Brightness.dark,
-          statusBarBrightness: Brightness.light,
-        ),
-        centerTitle: true,
+       
       ),
-      // drawer: const Drawer(),
       body: SafeArea(
           child: Column(
         children: [
@@ -90,7 +83,7 @@ class AskAQuestionScreen extends StatelessWidget {
                   const SizedBox(height: 10.0),
                   const Text('Ask a Question', style: kBlackBoldHeading),
                   const SizedBox(height: 10.0),
-                const  Text(
+                  const Text(
                       'Seek accurate answers to your life problems and get guidance towards the right path. Whether the problem is related to love, self, life, business, money, education or work, our astrologers will do an in depth study of your birth chart to provide personalizedresponses along with remedies.',
                       style: TextStyle(color: Colors.black54)),
                   const SizedBox(height: 10),
@@ -139,55 +132,58 @@ class AskAQuestionScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  Theme(
-                    data: ThemeData(
-                      primaryColor: Colors.redAccent,
-                      primaryColorDark: Colors.red,
-                    ),
-                    child: const TextField(
-                      maxLength: 150,
-                      maxLines: 3,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal)),
-                        hintText: 'Type a question here',
-                      ),
-                    ),
-                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width,
+                    child: ListView(
+                      children: [
+                        Theme(
+                          data: ThemeData(
+                            primaryColor: Colors.redAccent,
+                            primaryColorDark: Colors.red,
+                          ),
+                          child: const TextField(
+                            maxLength: 150,
+                            maxLines: 3,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.teal)),
+                              hintText: 'Type a question here',
+                            ),
+                          ),
+                        ),
+                     
                   const SizedBox(height: 10),
                   const Text(
                     'Ideas what to ask (Select Any)',
                     style: kBlackBoldHeading,
                   ),
                   const SizedBox(height: 10),
-                  SizedBox(
-                    height: 200,
-                    child: ListView(
-                      shrinkWrap: true,
-                      // primary: false,
-                      children: const [
-                        AskIdeaTileWidget(
-                          title:
-                              'When is the right for me to introduce my boyfriend / girlfriend?',
-                        ),
-                        AskIdeaTileWidget(
-                          title:
-                              'Doubtful about taking my relationship to nextlevel?',
-                        ),
-                        AskIdeaTileWidget(
-                          title: 'How will I meet my potential life partner?',
-                        ),
-                          AskIdeaTileWidget(
-                          title: 'Is my wife/Husband faihful?',
-                        ),
-                          AskIdeaTileWidget(
-                          title: 'Will I ever meet my true love?',
-                        ),
-                          AskIdeaTileWidget(
-                          title: 'When will I get in relationship?',
-                        ),
-                      ],
-                    ),
+                        ListView(
+                          shrinkWrap: true,
+                          primary: false,
+                          children: const [
+                            AskIdeaTileWidget(
+                              title:
+                                  'When is the right for me to introduce my boyfriend / girlfriend?',
+                            ),
+                            AskIdeaTileWidget(
+                              title:
+                                  'Doubtful about taking my relationship to nextlevel?',
+                            ),
+                            AskIdeaTileWidget(
+                              title:
+                                  'How will I meet my potential life partner?',
+                            ),
+                            AskIdeaTileWidget(
+                              title: 'Is my wife/Husband faihful?',
+                            ),
+                            AskIdeaTileWidget(
+                              title: 'Will I ever meet my true love?',
+                            ),
+                            AskIdeaTileWidget(
+                              title: 'When will I get in relationship?',
+                            ),
+                          ],
                   ),
                   const SizedBox(height: 10),
                   const Text(
@@ -210,6 +206,10 @@ class AskAQuestionScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 25),
+               
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -329,6 +329,5 @@ class AskAQuestionScreen extends StatelessWidget {
 }
 
 
-// var scaffoldKey = GlobalKey<ScaffoldState>();
 
 
