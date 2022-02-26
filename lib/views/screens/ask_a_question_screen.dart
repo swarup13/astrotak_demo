@@ -34,7 +34,6 @@ class AskAQuestionScreen extends StatelessWidget {
                 Navigator.pushNamed(context, AppRoutes.profileSection);
               }),
         ],
-       
       ),
       body: SafeArea(
           child: Column(
@@ -132,58 +131,52 @@ class AskAQuestionScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width,
-                    child: ListView(
-                      children: [
-                        Theme(
-                          data: ThemeData(
-                            primaryColor: Colors.redAccent,
-                            primaryColorDark: Colors.red,
-                          ),
-                          child: const TextField(
-                            maxLength: 150,
-                            maxLines: 3,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.teal)),
-                              hintText: 'Type a question here',
-                            ),
-                          ),
-                        ),
-                     
+                  Theme(
+                    data: ThemeData(
+                      primaryColor: Colors.redAccent,
+                      primaryColorDark: Colors.red,
+                    ),
+                    child: const TextField(
+                      maxLength: 150,
+                      maxLines: 3,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.teal)),
+                        hintText: 'Type a question here',
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 10),
                   const Text(
                     'Ideas what to ask (Select Any)',
                     style: kBlackBoldHeading,
                   ),
                   const SizedBox(height: 10),
-                        ListView(
-                          shrinkWrap: true,
-                          primary: false,
-                          children: const [
-                            AskIdeaTileWidget(
-                              title:
-                                  'When is the right for me to introduce my boyfriend / girlfriend?',
-                            ),
-                            AskIdeaTileWidget(
-                              title:
-                                  'Doubtful about taking my relationship to nextlevel?',
-                            ),
-                            AskIdeaTileWidget(
-                              title:
-                                  'How will I meet my potential life partner?',
-                            ),
-                            AskIdeaTileWidget(
-                              title: 'Is my wife/Husband faihful?',
-                            ),
-                            AskIdeaTileWidget(
-                              title: 'Will I ever meet my true love?',
-                            ),
-                            AskIdeaTileWidget(
-                              title: 'When will I get in relationship?',
-                            ),
-                          ],
+                  ListView(
+                    shrinkWrap: true,
+                    primary: false,
+                    children: const [
+                      AskIdeaTileWidget(
+                        title:
+                            'When is the right for me to introduce my boyfriend / girlfriend?',
+                      ),
+                      AskIdeaTileWidget(
+                        title:
+                            'Doubtful about taking my relationship to nextlevel?',
+                      ),
+                      AskIdeaTileWidget(
+                        title: 'How will I meet my potential life partner?',
+                      ),
+                      AskIdeaTileWidget(
+                        title: 'Is my wife/Husband faihful?',
+                      ),
+                      AskIdeaTileWidget(
+                        title: 'Will I ever meet my true love?',
+                      ),
+                      AskIdeaTileWidget(
+                        title: 'When will I get in relationship?',
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
                   const Text(
@@ -206,10 +199,6 @@ class AskAQuestionScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 25),
-               
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -327,7 +316,3 @@ class AskAQuestionScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
