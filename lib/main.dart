@@ -1,9 +1,14 @@
+import 'package:astrotak_demo/controllers/providers/question_list_provider.dart';
 import 'package:astrotak_demo/controllers/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<AstrotakProvider>(create: (_) => AstrotakProvider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,8 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'AstrosTak Demo',
+      builder: EasyLoading.init(),
       theme: ThemeData(
-        
         primarySwatch: Colors.blue,  
         scaffoldBackgroundColor: const Color(0xfffafafa),
         appBarTheme: const AppBarTheme(
